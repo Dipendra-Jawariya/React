@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 export default function About() {
   const [myStyle, setmyStyle] = useState({
-    color: "black",
+    color: "black", //myStyle is a javascript object
     backgroundColor: "white",
   });
 
@@ -18,7 +18,7 @@ export default function About() {
     }
     else{
       setmyStyle({
-        color:'white',
+        color:'white', 
         backgroundColor:'black',
         border:'1px solid white'
       })
