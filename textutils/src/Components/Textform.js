@@ -6,32 +6,38 @@ export default function Textform(props) {
     // console.log("Uppercase was clicked");
     let newText = text.toUpperCase();
     setText(newText);
+    props.showAlert("Converted to Uppercase!","success");
   };
   const handleDownClick = () => {
     // console.log("Uppercase was clicked");
     let newText = text.toLowerCase();
     setText(newText);
+    props.showAlert("Converted to Lowercase!","success");
   };
   const handleIclearClick = () => {
-    // console.log("Uppercase was clicked");
     let newText = " ";
     setText(newText);
+    props.showAlert("Cleared Text!","success");
+     
   };
   const handleOnChange = (event) => {
-    //with hte help of the onchange event we are able to write something in the textarea and can manipulate that
+    //with the help of the onchange event we are able to write something in the textarea and can manipulate that
     // console.log("on Change");
     setText(event.target.value);
+    
   };
   const handlecopy = () => {
     console.log("I am copy");
     var text = document.getElementById("myBox");
     text.select();
     navigator.clipboard.writeText(text.value); //here navigator interface is copy the text with value of the text
+    props.showAlert(" Copied to Clipboard!","success");
   };
   const handleExtraSpaces = () => {
     console.log("extra spaces");
     let newText =  text.split(/[ ]+/);
     setText(newText.join(" "))
+    props.showAlert("Removed ExtraSpaces!","success");
   };
 
   const [text, setText] = useState("");
@@ -40,7 +46,7 @@ export default function Textform(props) {
   // setText("new text");//correct way to change the state
   return (
     <>
-      <div className="container"  style={{color:props.mode==='dark'?'white':'black'}}>
+      <div className="container" style={{color:props.mode==='dark'?'white':'black'}} >
         <h1>{props.heading}</h1>
         <div className="mb-3">
           <textarea
