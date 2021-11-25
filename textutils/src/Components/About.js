@@ -1,10 +1,11 @@
 import React, { useState } from "react";
+import "./myStyle.css";
 
 export default function About() {
   const [myStyle, setmyStyle] = useState({
     color: "black", //myStyle is a javascript object
-    backgroundColor: "white",
-  });
+    backgroundColor: "white",//here we are having the intial state of the app ,this are the initial properties
+  }); 
 
   const [btntext, setbtntext] = useState("Enable Dark Mode")
 
@@ -20,7 +21,9 @@ export default function About() {
       setmyStyle({
         color:'white', 
         backgroundColor:'black',
-        border:'1px solid white'
+        // border:'1px solid white',
+        padding:'5px',
+        border: '2px solid #3498db'
       })
       setbtntext("Enable light Mode")
     }

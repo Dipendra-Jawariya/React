@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "./myStyle.css"
 // HOOKS are a new addition to react they let you use state and other features without a classc in function based components
 
 export default function Textform(props) {
