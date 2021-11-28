@@ -29,7 +29,7 @@ function App() {
       // document.title = "TextUtils -Dark Mode";
       // setInterval(() => {
       //   document.title = "TextUtils  is Amazing Mode";
-      // }, 2000);                                                    //This is just to grab attension  ans it gives worst user experience
+      // }, 2000);                                                    //This is just to grab attension  and it gives worst user experience
       // setInterval(() => {
       //   document.title = "Install TextUtils Now";
       // }, 1500);
