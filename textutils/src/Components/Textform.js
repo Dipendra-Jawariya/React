@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import "./myStyle.css"
 // HOOKS are a new addition to react they let you use state and other features without a classc in function based components
 
 export default function Textform(props) {
+  
   const handleUpClick = () => {
     // console.log("Uppercase was clicked");
     let newText = text.toUpperCase();
@@ -28,14 +29,15 @@ export default function Textform(props) {
     
   };
   const handlecopy = () => {
-    console.log("I am copy");
+    // console.log("I am copy");
     var text = document.getElementById("myBox");
     text.select();
     navigator.clipboard.writeText(text.value); //here navigator interface is copy the text with value of the text
+    document.getSelection().removeAllRanges();
     props.showAlert(" Copied to Clipboard!","success");
   };
   const handleExtraSpaces = () => {
-    console.log("extra spaces");
+    // console.log("extra spaces");
     let newText =  text.split(/[ ]+/);
     setText(newText.join(" "))
     props.showAlert("Removed ExtraSpaces!","success");
@@ -48,7 +50,7 @@ export default function Textform(props) {
   return (
     <>
       <div className="container" style={{color:props.mode==='dark'?'white':'black'}} >
-        <h1>{props.heading}</h1>
+        <h1 className="my-3">{props.heading}</h1>
         <div className="mb-3">
           <textarea
             className="form-control"
@@ -59,30 +61,30 @@ export default function Textform(props) {
             rows="8"
           ></textarea>
         </div>
-        <button className="btn btn-primary mx-1" onClick={handleUpClick}>
+        <button disabled={text.length==0} className="btn btn-primary mx-1 my-1" onClick={handleUpClick}>
           Convert to UpperCase
         </button>
-        <button className="btn btn-primary mx-1" onClick={handleDownClick}>
+        <button disabled={text.length==0} className="btn btn-primary mx-1 my-1" onClick={handleDownClick}>
           Convert to LowerCase
         </button>
-        <button className="btn btn-primary mx-1" onClick={handleIclearClick}>
+        <button disabled={text.length==0} className="btn btn-primary mx-1 my-1" onClick={handleIclearClick}>
           Clear Text
         </button>
-        <button className="btn btn-primary mx-1" onClick={handlecopy}>
+        <button disabled={text.length==0} className="btn btn-primary mx-1 my-1" onClick={handlecopy}>
           Copy text
         </button>
-        <button className="btn btn-primary mx-1" onClick={handleExtraSpaces}>
+        <button disabled={text.length==0} className="btn btn-primary mx-1 my-1" onClick={handleExtraSpaces}>
           Remove Extra Spaces
         </button>
       </div>
       <div className="container my-3" style={{color:props.mode==='dark'?'white':'black'}}>
         <h2>You text summary</h2>
         <p>
-          {text.split(" ").length} Words and {text.length} character{" "}
+          {text.split(" ").filter((element)=>{return element.length!==0}).length} Words and {text.length} character{" "}
         </p>
-        <p>{0.008 * text.split(" ").length} Minutes read</p>
+        <p>{0.008 * text.split(" ").filter((element)=>{return element.length!==0}).length} Minutes read</p>
         <h3 className="myheading">Preview</h3>
-        <p>{text.length>0?text:"Enter Something in the textbox above to Preview it here"}</p>
+        <p>{text.length>0?text:"Nothing to preview"}</p>
       </div>
     </>
   );

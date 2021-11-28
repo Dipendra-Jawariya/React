@@ -6,7 +6,7 @@ import React, { useState } from "react";
 import Alert from "./Components/Alert";
 import Login from "./Components/Login";
 
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 
 function App() {
   const [mode, setmode] = useState("light"); //Wheather dark mode is enabled or not
@@ -26,7 +26,7 @@ function App() {
       setmode("dark");
       document.body.style.backgroundColor = "#34495e";
       showAlert("Dark mode has been Enabled", "success");
-      document.title = "TextUtils -Dark Mode";
+      // document.title = "TextUtils -Dark Mode";
       // setInterval(() => {
       //   document.title = "TextUtils  is Amazing Mode";
       // }, 2000);                                                    //This is just to grab attension  ans it gives worst user experience
@@ -37,7 +37,7 @@ function App() {
       setmode("light"); //we cannot  not define set variable with the assignment operator
       document.body.style.backgroundColor = "white";
       showAlert("Light mode has been Enabled", "success");
-      document.title = "TextUtils -Light Mode";
+      // document.title = "TextUtils -Light Mode";
     }
   };
   return (
@@ -49,18 +49,18 @@ function App() {
         <div className="container my-3">
           <Switch>
             <Route exact path="/about">
-              <About />
+              <About  mode={mode}/>
             </Route>
             <Route exact path="/">
               <Textform
                 showAlert={showAlert}
-                heading="Enter text in here to analyze"
+                heading="Try TextUtils - Word Counter,Character Counter ,Remove extra Spaces"
                 mode={mode}
               />
             </Route>
             <Route exact path="/Login">
-            <Login />
-          </Route>
+              <Login />
+            </Route>
           </Switch>
         
         </div>
