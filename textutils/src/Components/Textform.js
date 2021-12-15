@@ -62,35 +62,35 @@ export default function Textform(props) {
           ></textarea>
         </div>
         <button
-          disabled={text.length == 0}
+          disabled={text.length === 0}
           className="btn btn-primary mx-1 my-1"
           onClick={handleUpClick}
         >
           Convert to UpperCase
         </button>
         <button
-          disabled={text.length == 0}
+          disabled={text.length === 0}
           className="btn btn-primary mx-1 my-1"
           onClick={handleDownClick}
         >
           Convert to LowerCase
         </button>
         <button
-          disabled={text.length == 0}
+          disabled={text.length === 0}
           className="btn btn-primary mx-1 my-1"
           onClick={handleIclearClick}
         >
           Clear Text
         </button>
         <button
-          disabled={text.length == 0}
+          disabled={text.length === 0}
           className="btn btn-primary mx-1 my-1"
           onClick={handlecopy}
         >
           Copy text
         </button>
         <button
-          disabled={text.length == 0}
+          disabled={text.length === 0}
           className="btn btn-primary mx-1 my-1"
           onClick={handleExtraSpaces}
         >
