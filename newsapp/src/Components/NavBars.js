@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-
+// rcep - reactClassExportComponentWithPropTypes
 export class NavBars extends Component {
   render() {
     return (
       <div>
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <nav className="navbar navbar-expand-lg navbar-dark bg-black">
           <div className="container-fluid">
             <a className="navbar-brand" href="/">
               NewsMonkey
